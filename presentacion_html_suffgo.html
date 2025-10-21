@@ -321,8 +321,8 @@
               </div>
               <div class="grid-3">
                 <div class="kpi">
-                  <h3>Equipo</h3>
-                  <p class="muted">Roles y responsabilidades claras</p>
+                  <h3>Metodologia</h3>
+                  <p class="muted"> Frontend: Benedetti Constanza • Soto Marcos • Sanchez Ignacio - Backend: Cardenas Tiago • Sanchez Ignacio</p>
                 </div>
                 <div class="kpi">
                   <h3>Stack</h3>
@@ -351,7 +351,7 @@
             </p>
             <ul>
               <li>
-                Objetivo: facilitar procesos deliberativos transparentes y
+                Objetivo: <b>facilitar/agilizar</b> procesos deliberativos transparentes y
                 ágiles.
               </li>
               <li>Usuarios: equipos de trabajo, instituciones, comunidades.</li>
@@ -385,22 +385,6 @@
                     permisos.
                   </li>
                   <li>Tablero de resultados y exportación de reportes.</li>
-                </ul>
-              </div>
-              <div>
-                <h3>Arquitectura (alto nivel)</h3>
-                <ul>
-                  <li>
-                    Backend en Go (arquitectura limpia: handlers, usecases,
-                    repos).
-                  </li>
-                  <li>Front‑end Astro/Tailwind o React, según módulo.</li>
-                  <li>
-                    Base de datos relacional (PostgreSQL/MySQL) y migraciones.
-                  </li>
-                  <li>
-                    Contenedores con Docker/Compose para dev y despliegue.
-                  </li>
                 </ul>
               </div>
             </div>
@@ -443,75 +427,123 @@
           </div>
         </section>
 
+        <!-- 4. Arquitectura de sistema -->
+        <!-- Mencionar el asunto de que desplegamos en render a la hora de presentar, por eso aparece su dns -->
+        <section class="slide">
+          <div class="slide-inner card" style="display:flex; flex-direction: column; align-items:center; justify-content:center;">
+            <h2>Arquitectura de sistema</h2>
+            <figure style="margin:0 auto; max-width:90%; text-align:center;">
+              <img
+              src="assets/arquitectura-suffgo.png"
+              alt="Diagrama de arquitectura de Suffgo: cliente web, API Go, base de datos relacional, autenticación, colas y storage"
+              loading="lazy"
+              decoding="async"
+              style="max-width:100%; height:auto; border:1px solid #e8e5ff; border-radius:16px; background:#fff; display:inline-block; box-shadow:0 10px 20px rgba(17,24,39,.08)"/>
+            <figcaption class="muted" style="margin-top:12px; font-size:15px">Arquitectura del Sistema Suffgo</figcaption>
+            </figure>
+          </div>
+        </section>
+
         
 
-        <!-- 4. Problemas y cómo los resolvimos -->
+        <!-- 6. Stack tecnológico -->
         <section class="slide">
           <div class="slide-inner card">
-            <h2>Desafíos y soluciones</h2>
+            <h2>Stack tecnologico</h2>
             <div class="grid-2">
               <div>
-                <h3>Problemas encontrados</h3>
+                <h3>Backend</h3>
                 <ul>
                   <li>
-                    Inconsistencias de redondeo en importes (75.80 → 75.79).
+                    Go
                   </li>
-                  <li>Relaciones complejas en queries (LEFT/joins y alias).</li>
-                  <li>Estados de formularios dinámicos en Laravel/Blade.</li>
                   <li>
-                    Devcontainers y versiones (Go, gopls) en equipos distintos.
+                    Echo
+                  </li>
+                  <li>
+                    Xorm
                   </li>
                 </ul>
               </div>
               <div>
-                <h3>Soluciones aplicadas</h3>
+                <h3>Frontend</h3>
                 <ul>
                   <li>
-                    Unificación de reglas de <b>redondeo</b> y pruebas
-                    unitarias.
+                    Astro
                   </li>
                   <li>
-                    Refactor de <b>consultas</b> con vistas/CTEs y
-                    <b>Spatie QueryBuilder</b>.
+                    Vue
                   </li>
                   <li>
-                    Persistencia de estado y <b>validación</b> post‑back en
-                    Blade.
+                    Tailwind
                   </li>
                   <li>
-                    Pin de versiones y <b>CI</b> para builds reproducibles.
+                    Axios
                   </li>
                 </ul>
               </div>
+              <div>
+                <h3>DBMS</h3>
+                <ul>
+                  <li>
+                    PostgreSQL
+                  </li>
+                </ul>
+              </div> 
+              <div>
+                <h3>Herramientas</h3>
+                <ul>
+                  <li>
+                    Docker
+                  </li>
+                  <li>
+                    Git
+                  </li>
+                </ul>
+              </div> 
             </div>
           </div>
         </section>
 
-        <!-- 5. Conclusiones -->
+
+        <!-- 7. Arquitectura Backend -->
+        <section class="slide">
+          <div class="slide-inner card">
+            <h2>Arquitectura Backend</h2>
+              <figure style="margin:0 auto; max-width:90%; text-align:center;">
+              <img
+              src="assets/arq.avif"
+              alt="Diagrama de arquitectura de Backend"
+              loading="lazy"
+              decoding="async"
+              style="max-width:100%; height:auto; border:1px solid #e8e5ff; border-radius:16px; background:#fff; display:inline-block; box-shadow:0 10px 20px rgba(17,24,39,.08)"/>
+            <figcaption class="muted" style="margin-top:12px; font-size:15px">Arquitectura de Backend</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- 8. Websocket -->
+
+        <!-- 9. Conclusiones -->
         <section class="slide">
           <div class="slide-inner card">
             <h2>Conclusiones</h2>
             <ul>
               <li>
-                El enfoque iterativo + Kanban mejoró previsibilidad y calidad.
+                Coordinaar y dividir tareas nos permitio mantenernos mas organizados.
               </li>
               <li>
-                La estrategia de ramas y PRs disciplinó la integración continua.
+                Usar forks y branches en Git nos permitió evitar conflictos y mantener el orden.
               </li>
               <li>
                 Diseño con arquitectura limpia facilitó pruebas y
                 mantenibilidad.
               </li>
-              <li>Próximos pasos: analítica avanzada, auditoría y escalado.</li>
             </ul>
-            <p class="muted">
-              Sugerencia: incluir métricas reales (lead time, bugs, cobertura) y
-              un mini demo.
-            </p>
           </div>
         </section>
 
-        <!-- 6. Cierre -->
+        <!-- 10. Cierre -->
         <section class="slide">
           <div class="slide-inner card">
             <h2>¡Gracias!</h2>
