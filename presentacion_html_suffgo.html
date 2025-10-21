@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suffgo — Presentación</title>
+    <style>
+      :root {
+        --primary: #6b48ff;
+        --secondary: #a78bfa;
+        --accent: #111827;
+        --neutral: #ffffff;
+        --base-100: #f8f6ff;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+          Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: var(--base-100);
+        color: var(--accent);
+      }
+      /* Deck layout */
+      .deck {
+        position: relative;
+        width: 100%;
+        height: 100dvh;
+        overflow: hidden;
+      }
+      .slides {
+        display: flex;
+        height: 100%;
+        transition: transform 0.5s ease;
+      }
+      .slide {
+        min-width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 64px 72px;
+        display: grid;
+        place-items: center;
+      }
+      .slide-inner {
+        max-width: 1100px;
+        width: 100%;
+      }
+
+      /* Card style for content blocks */
+      .card {
+        background: var(--neutral);
+        border-radius: 24px;
+        padding: 32px 36px;
+        box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08),
+          0 2px 8px rgba(17, 24, 39, 0.05);
+      }
+
+      /* Headings */
+      h1 {
+        font-size: 56px;
+        line-height: 1.05;
+        margin: 0.2em 0;
+        color: var(--primary);
+        letter-spacing: 0.5px;
+      }
+      h2 {
+        font-size: 36px;
+        margin: 0 0 16px;
+        color: var(--primary);
+      }
+      h3 {
+        font-size: 22px;
+        margin: 16px 0 8px;
+        color: var(--accent);
+      }
+      p {
+        font-size: 20px;
+        line-height: 1.6;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        font-size: 20px;
+        margin: 8px 0;
+      }
+      .muted {
+        opacity: 0.7;
+      }
+      .tag {
+        display: inline-block;
+        background: var(--base-100);
+        border: 1px solid var(--secondary);
+        color: var(--primary);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 14px;
+        margin-right: 8px;
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        gap: 24px;
+      }
+      .hero h1 span {
+        color: var(--accent);
+      }
+      .hero-sub {
+        font-size: 22px;
+        color: var(--accent);
+      }
+
+      /* Grid utilities */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 24px;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .kpi {
+        background: var(--neutral);
+        border: 1px solid #e8e5ff;
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .kpi h3 {
+        margin: 0;
+        color: var(--primary);
+      }
+
+      /* Footer controls */
+      .controls {
+        position: absolute;
+        inset: auto 0 16px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .btn {
+        border: 0;
+        background: var(--primary);
+        color: #fff;
+        padding: 10px 16px;
+        font-size: 16px;
+        border-radius: 12px;
+        cursor: pointer;
+      }
+      .btn.secondary {
+        background: var(--secondary);
+        color: #111;
+      }
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* Progress */
+      .progress-wrap {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 64px;
+        height: 6px;
+        background: #e8e5ff;
+        border-radius: 999px;
+      }
+      .progress {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 999px;
+        transition: width 0.35s ease;
+      }
+
+      /* Top bar */
+      .topbar {
+        position: absolute;
+        inset: 16px 16px auto 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        background: var(--primary);
+        box-shadow: 10px 0 0 var(--secondary), 20px 0 0 var(--accent);
+      }
+      .brand b {
+        letter-spacing: 0.5px;
+      }
+
+      /* Accent blocks */
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--neutral);
+        border: 1px dashed var(--secondary);
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+      }
+
+      /* Code-like block */
+      .code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        background: #0b1020;
+        color: #e8eaff;
+        padding: 18px 20px;
+        border-radius: 14px;
+        font-size: 15px;
+        overflow: auto;
+      }
+      .kbd {
+        font-family: inherit;
+        background: #f1efff;
+        color: #3b2ac8;
+        padding: 2px 8px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .slide {
+          padding: 32px 20px;
+        }
+        h1 {
+          font-size: 36px;
+        }
+        h2 {
+          font-size: 26px;
+        }
+        p,
+        li {
+          font-size: 18px;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+        .controls {
+          bottom: 12px;
+        }
+        .progress-wrap {
+          bottom: 48px;
+        }
+      }
+
+      /* Print-friendly */
+      @media print {
+        .deck {
+          height: auto;
+        }
+        .slides {
+          display: block;
+        }
+        .slide {
+          page-break-after: always;
+          min-height: auto;
+        }
+        .controls,
+        .progress-wrap,
+        .topbar {
+          display: none;
+        }
+        body {
+          background: #fff;
+        }
+        .card {
+          box-shadow: none;
+          border: 1px solid #eee;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="deck" id="deck">
+      <div class="topbar">
+        <div class="brand">
+          <span class="logo" aria-hidden="true"></span><b>Suffgo</b>
+        </div>
+        <div class="pill">
+          Usa ← / → o <span class="kbd">Space</span> para avanzar
+        </div>
+      </div>
+
+      <div class="slides" id="slides">
+        <!-- 0. Portada -->
+        <section class="slide">
+          <div class="slide-inner">
+            <div class="hero card">
+              <div>
+                <span class="tag">Presentación del Proyecto</span>
+                <h1>Suffgo <span>— del concepto al producto</span></h1>
+                <p class="hero-sub">
+                  Una mirada práctica al proceso de desarrollo: metodología,
+                  flujo de trabajo con Git/Kanban, funcionalidades clave,
+                  desafíos y aprendizajes.
+                </p>
+              </div>
+              <div class="grid-3">
+                <div class="kpi">
+                  <h3>Equipo</h3>
+                  <p class="muted">Roles y responsabilidades claras</p>
+                </div>
+                <div class="kpi">
+                  <h3>Stack</h3>
+                  <p class="muted">
+                    Go • React/Astro • Docker • PostgreSQL/MySQL
+                  </p>
+                </div>
+                <div class="kpi">
+                  <h3>Estado</h3>
+                  <p class="muted">MVP funcional • Iterando feedback</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 1. Introducción -->
+        <section class="slide">
+          <div class="slide-inner card">
+            <h2>Introducción</h2>
+            <p>
+              <b>Suffgo</b> es una plataforma para toma de decisiones en grupos,
+              inspirada en la idea de “<i>suffrage on the go</i>”. Permite crear
+              salas, propuestas y opciones de votación con reglas formales
+              configurables, orientada a equipos y organizaciones.
+            </p>
+            <ul>
+              <li>
+                Objetivo: facilitar procesos deliberativos transparentes y
+                ágiles.
+              </li>
+              <li>Usuarios: equipos de trabajo, instituciones, comunidades.</li>
+              <li>
+                Alcance actual: autenticación, gestión de salas, propuestas y
+                votos; reportes básicos.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 2. Qué hace la aplicación -->
+        <section class="slide">
+          <div class="slide-inner card">
+            <h2>¿Qué hace Suffgo?</h2>
+            <div class="grid-2">
+              <div>
+                <ul>
+                  <li>
+                    Alta y administración de <b>usuarios</b></b>.
+                  </li>
+                  <li>
+                    Creación y gestión de <b>salas de votación</b>, customizacion de la misma.
+                  </li>
+                  <li>
+                    Creación de <b>propuestas</b> con múltiples
+                    <b>opciones de voto</b>.
+                  </li>
+                  <li>
+                    Configuraciones formales: tiempos, quórum, reglas y
+                    permisos.
+                  </li>
+                  <li>Tablero de resultados y exportación de reportes.</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Arquitectura (alto nivel)</h3>
+                <ul>
+                  <li>
+                    Backend en Go (arquitectura limpia: handlers, usecases,
+                    repos).
+                  </li>
+                  <li>Front‑end Astro/Tailwind o React, según módulo.</li>
+                  <li>
+                    Base de datos relacional (PostgreSQL/MySQL) y migraciones.
+                  </li>
+                  <li>
+                    Contenedores con Docker/Compose para dev y despliegue.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Metodologías y Flujo de trabajo -->
+        <section class="slide">
+          <div class="slide-inner card">
+            <h2>Proceso de desarrollo</h2>
+            <div class="grid-2">
+              <div>
+                <h3>Metodologías</h3>
+                <ul>
+                  <li>
+                    Iteraciones cortas (cadencia semanal) con <b>Kanban</b>
+                  </li>
+                  <li>
+                    <b>Scrum a medias:</b>reuniones semanales.
+                  </li>
+                </ul>
+                <h3>Git & ramas</h3>
+                <ul>
+                  <li>Estrategia <b>main</b> + <b>develop</b> + <b>forks</b>.</li>
+                  <li>Code review a la hora mergear a develop</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Tablero Kanban (Huly)</h3>
+                <ul>
+                  <li>
+                    Separamos tareas por backend, frontend y documentación
+                  </li>
+                  <li>
+                    Columnas: ToDo → In Progress → PR Pending→ Testing → Done.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
+
+        <!-- 4. Problemas y cómo los resolvimos -->
+        <section class="slide">
+          <div class="slide-inner card">
+            <h2>Desafíos y soluciones</h2>
+            <div class="grid-2">
+              <div>
+                <h3>Problemas encontrados</h3>
+                <ul>
+                  <li>
+                    Inconsistencias de redondeo en importes (75.80 → 75.79).
+                  </li>
+                  <li>Relaciones complejas en queries (LEFT/joins y alias).</li>
+                  <li>Estados de formularios dinámicos en Laravel/Blade.</li>
+                  <li>
+                    Devcontainers y versiones (Go, gopls) en equipos distintos.
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3>Soluciones aplicadas</h3>
+                <ul>
+                  <li>
+                    Unificación de reglas de <b>redondeo</b> y pruebas
+                    unitarias.
+                  </li>
+                  <li>
+                    Refactor de <b>consultas</b> con vistas/CTEs y
+                    <b>Spatie QueryBuilder</b>.
+                  </li>
+                  <li>
+                    Persistencia de estado y <b>validación</b> post‑back en
+                    Blade.
+                  </li>
+                  <li>
+                    Pin de versiones y <b>CI</b> para builds reproducibles.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Conclusiones -->
+        <section class="slide">
+          <div class="slide-inner card">
+            <h2>Conclusiones</h2>
+            <ul>
+              <li>
+                El enfoque iterativo + Kanban mejoró previsibilidad y calidad.
+              </li>
+              <li>
+                La estrategia de ramas y PRs disciplinó la integración continua.
+              </li>
+              <li>
+                Diseño con arquitectura limpia facilitó pruebas y
+                mantenibilidad.
+              </li>
+              <li>Próximos pasos: analítica avanzada, auditoría y escalado.</li>
+            </ul>
+            <p class="muted">
+              Sugerencia: incluir métricas reales (lead time, bugs, cobertura) y
+              un mini demo.
+            </p>
+          </div>
+        </section>
+
+        <!-- 6. Cierre -->
+        <section class="slide">
+          <div class="slide-inner card">
+            <h2>¡Gracias!</h2>
+            <p>¿Preguntas o comentarios?</p>
+            <div style="margin-top: 12px">
+              <span class="tag">Contacto</span>
+              <span class="tag">Repositorio</span>
+              <span class="tag">Demo</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="progress-wrap" aria-hidden="true">
+        <div id="progress" class="progress"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn secondary" id="prev" aria-label="Anterior">
+          ← Anterior
+        </button>
+        <button class="btn" id="next" aria-label="Siguiente">
+          Siguiente →
+        </button>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const slides = document.getElementById("slides");
+        const deck = document.getElementById("deck");
+        const prevBtn = document.getElementById("prev");
+        const nextBtn = document.getElementById("next");
+        const progress = document.getElementById("progress");
+        const total = slides.children.length;
+        let index = Math.max(
+          0,
+          Math.min(
+            total - 1,
+            parseInt(location.hash.replace("#", "") || "0", 10)
+          )
+        );
+
+        function go(i) {
+          index = Math.max(0, Math.min(total - 1, i));
+          slides.style.transform = `translateX(-${index * 100}%)`;
+          location.hash = String(index);
+          progress.style.width = ((index + 1) / total) * 100 + "%";
+          prevBtn.disabled = index === 0;
+          nextBtn.disabled = index === total - 1;
+        }
+
+        // Controls
+        nextBtn.addEventListener("click", () => go(index + 1));
+        prevBtn.addEventListener("click", () => go(index - 1));
+
+        // Keyboard
+        window.addEventListener("keydown", (e) => {
+          if (["ArrowRight", "PageDown", " "].includes(e.key)) {
+            e.preventDefault();
+            go(index + 1);
+          }
+          if (["ArrowLeft", "PageUp"].includes(e.key)) {
+            e.preventDefault();
+            go(index - 1);
+          }
+          if (e.key === "Home") {
+            go(0);
+          }
+          if (e.key === "End") {
+            go(total - 1);
+          }
+        });
+
+        // Click advance on empty space
+        deck.addEventListener("click", (e) => {
+          if (
+            e.target.closest(".btn") ||
+            e.target.closest("a") ||
+            window.getSelection().toString()
+          )
+            return;
+          go(index + 1);
+        });
+
+        // Hash navigation
+        window.addEventListener("hashchange", () => {
+          const h = parseInt(location.hash.replace("#", "") || "0", 10);
+          if (!Number.isNaN(h)) go(h);
+        });
+
+        // Resize (for iOS address bar glitches)
+        window.addEventListener("resize", () => {
+          go(index);
+        });
+
+        // Init
+        go(index);
+      })();
+    </script>
+  </body>
+</html>
