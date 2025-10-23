@@ -298,10 +298,10 @@
     <div class="deck" id="deck">
       <div class="topbar">
         <div class="brand">
-          <span class="logo" aria-hidden="true"></span><b>Suffgo</b>
+          <span style="color:#6b48ff" aria-hidden="true"><b>Suffgo</b></span>
         </div>
         <div class="pill">
-          Usa ← / → o <span class="kbd">Space</span> para avanzar
+          Usa ← / → o <span class="kbd">Space</span>
         </div>
       </div>
 
@@ -319,20 +319,34 @@
                   desafíos y aprendizajes.
                 </p>
               </div>
-              <div class="grid-3">
-                <div class="kpi">
-                  <h3>Metodologia</h3>
-                  <p class="muted"> Frontend: Benedetti Constanza • Soto Marcos • Sanchez Ignacio - Backend: Cardenas Tiago • Sanchez Ignacio</p>
-                </div>
-                <div class="kpi">
-                  <h3>Stack</h3>
-                  <p class="muted">
-                    Go • React/Astro • Docker • PostgreSQL/MySQL
+              <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 10px">
+                <div class="kpi" style="box-shadow: 0 5px 10px #6b48ff; padding: 25px; border-radius: 12px;">
+                  <h3>Metodologia de trabajo</h3>
+                  <p class="mute" style="padding:5;"> 
+                    <li>Benedetti Constanza</li>
+                    <li>Soto Marcos</li>
+                    <li>Sanchez Ignacio</li>
+                    <li>Backend: Cardenas Tiago</li>
                   </p>
                 </div>
-                <div class="kpi">
-                  <h3>Estado</h3>
-                  <p class="muted">MVP funcional • Iterando feedback</p>
+                <div class="kpi" style="box-shadow: 0 5px 10px #6b48ff; padding-right: 40px; padding-left: 40px; border-radius: 12px;">
+                  <h3>Stack</h3>
+                  <p class="muted">
+                    <ul>
+                      <li>Go</li>
+                      <li>Vue/Astro</li>
+                      <li>PostgreSQL</li>
+                    </ul>
+                  </p>
+                </div>
+                <div class="kpi" style="box-shadow: 0 5px 10px #6b48ff; padding: 25px; border-radius: 12px;">
+                  <h3>Desafios</h3>
+                  <p class="muted">
+                    <ul>
+                      <li>Arquitectura Hexagonal</li>
+                      <li>Webscoket</li>
+                    </ul>
+                  </p>
                 </div>
               </div>
             </div>
@@ -356,8 +370,8 @@
               </li>
               <li>Usuarios: equipos de trabajo, instituciones, comunidades.</li>
               <li>
-                Alcance actual: autenticación, gestión de salas, propuestas y
-                votos; reportes básicos.
+                Features alcanzadas: autenticación, gestión de salas, propuestas y
+                votos; votación <b>tiempo real</b> y reportes post votación. 
               </li>
             </ul>
           </div>
@@ -391,29 +405,64 @@
           </div>
         </section>
 
+        <!-- 2. Qué no hace la aplicación -->
+        <section class="slide">
+          <div class="slide-inner card">
+            <h2>¿Qué no hace Suffgo?</h2>
+            <div style="display: flex; flex-direction: row;;gap: 24px; padding: 10px;">
+              <div>
+                <ul>
+                  <li>
+                    <b>No</b> garantiza anonimato del voto.
+                  </li>
+                  <li>
+                    <b>No</b> reemplaza un padrón oficial.
+                  </li>
+                  <li>
+                    <b>No</b> válida identidad con el RENAPER.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- 3. Metodologías y Flujo de trabajo -->
         <section class="slide">
           <div class="slide-inner card">
             <h2>Proceso de desarrollo</h2>
-            <div class="grid-2">
-              <div>
+            <div style="display: flex; flex-direction: row; gap: 24px; padding: 10px;">
+              <div style="box-shadow: 0 5px 10px #6b48ff; padding: 10px; border-radius: 12px;">
                 <h3>Metodologías</h3>
                 <ul>
                   <li>
                     Iteraciones cortas (cadencia semanal) con <b>Kanban</b>
                   </li>
                   <li>
-                    <b>Scrum a medias:</b>reuniones semanales.
+                    <b>Scrum a medias:</b> reuniones semanales.
                   </li>
                 </ul>
-                <h3>Git & ramas</h3>
+              </div>  
+              
+              <div style="box-shadow: 0 5px 10px #6b48ff; padding: 10px; border-radius: 12px;">
+                <div>
+
+                    <img src="assets/git-icon-logo.svg" style="width: 50px; height: 50px">
+                  <h3>Git & ramas</h3>
+                </div>
                 <ul>
                   <li>Estrategia <b>main</b> + <b>develop</b> + <b>forks</b>.</li>
                   <li>Code review a la hora mergear a develop</li>
                 </ul>
               </div>
-              <div>
-                <h3>Tablero Kanban (Huly)</h3>
+              
+              <div style="box-shadow: 0 5px 10px #6b48ff; padding: 10px; border-radius: 12px;">
+                <div>
+                  <h3 style="display: flex; align-items: center; gap:8px; margin-bottom: 10px;">
+                    <img src="assets/huly-logo.png" style="width: 50px; height: 50px">
+                    Tablero Kanban (Huly)
+                  </h3>
+                </div>
                 <ul>
                   <li>
                     Separamos tareas por backend, frontend y documentación
@@ -448,9 +497,9 @@
 
         <!-- 6. Stack tecnológico -->
         <section class="slide">
-          <div class="slide-inner card">
+          <div class="slide-inner card" style="padding: 50px;">
             <h2>Stack tecnologico</h2>
-            <div class="grid-2">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 24px; align-items: space-between;">
               <div>
                 <h3>Backend</h3>
                 <ul>
@@ -463,6 +512,7 @@
                   <li>
                     Xorm
                   </li>
+                  <li>Postgres</li>
                 </ul>
               </div>
               <div>
@@ -483,14 +533,6 @@
                 </ul>
               </div>
               <div>
-                <h3>DBMS</h3>
-                <ul>
-                  <li>
-                    PostgreSQL
-                  </li>
-                </ul>
-              </div> 
-              <div>
                 <h3>Herramientas</h3>
                 <ul>
                   <li>
@@ -509,20 +551,28 @@
         <!-- 7. Arquitectura Backend -->
         <section class="slide">
           <div class="slide-inner card">
-            <h2>Arquitectura Backend</h2>
-              <figure style="margin:0 auto; max-width:90%; text-align:center;">
-              <img
-              src="assets/arq.avif"
+            <h2 style="text-align: center;">Arquitectura Backend</h2>
+            <figure style="margin:0 auto; max-width:90%; text-align:center;">
+            <img
+              src="assets/arq-hexagonal.jpeg"
               alt="Diagrama de arquitectura de Backend"
               loading="lazy"
               decoding="async"
               style="max-width:100%; height:auto; border:1px solid #e8e5ff; border-radius:16px; background:#fff; display:inline-block; box-shadow:0 10px 20px rgba(17,24,39,.08)"/>
-            <figcaption class="muted" style="margin-top:12px; font-size:15px">Arquitectura de Backend</figcaption>
             </figure>
+            <div style="display: flex; flex-direction:column; justify-content: center; align-items: center;">
+              <ul>
+                <li>Puertos y Adaptadores</li>
+                <li>Flexible y Escalable</li>
+                <li>Separación de lógica de negocio</li>
+                <li>Complejidad</li>
+              </ul>
+            </div>
           </div>
         </section>
 
         <!-- 8. Websocket -->
+        
 
         <!-- 9. Conclusiones -->
         <section class="slide">
