@@ -49,6 +49,39 @@
         width: 100%;
       }
 
+      .media-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .video-fit {
+        width: 100%;
+        height: auto;                 /* respeta el aspecto del video */
+        max-height: calc(100dvh - 220px); /* limita la altura dentro de la slide */
+        object-fit: contain;          /* nunca recorta */
+        border-radius: 16px;
+        border: 1px solid #e8e5ff;
+        background: #fff;
+        box-shadow: 0 10px 20px rgba(17,24,39,.08);
+      }
+
+      .video-fit2 {
+        width: 100%;
+        height: auto;                 /* respeta el aspecto del video */
+        max-height: calc(100dvh - 220px); /* limita la altura dentro de la slide */
+        object-fit: contain;          /* nunca recorta */
+        border-radius: 16px;
+        border: 1px solid #e8e5ff;
+        background: #11011f;
+        box-shadow: 0 10px 20px rgba(17,24,39,.08);
+      }
+
+      /* En móviles, dejá más margen para que no toque controles del navegador */
+      @media (max-width: 900px){
+        .video-fit { max-height: calc(100dvh - 260px); }
+      }
+
       /* Card style for content blocks */
       .card {
         background: var(--neutral);
@@ -100,7 +133,6 @@
         font-size: 14px;
         margin-right: 8px;
       }
-
       /* Hero */
       .hero {
         display: grid;
@@ -325,8 +357,8 @@
                   <p class="mute" style="padding:5;"> 
                     <li>Benedetti Constanza</li>
                     <li>Soto Marcos</li>
-                    <li>Sanchez Ignacio</li>
-                    <li>Backend: Cardenas Tiago</li>
+                    <li>Sánchez Ignacio</li>
+                    <li>Cardenas Tiago</li>
                   </p>
                 </div>
                 <div class="kpi" style="box-shadow: 0 5px 10px #6b48ff; padding-right: 40px; padding-left: 40px; border-radius: 12px;">
@@ -356,6 +388,9 @@
         <!-- 1. Introducción -->
         <section class="slide">
           <div class="slide-inner card">
+            <div style="display: flex; justify-content: end;">
+              <span class="tag">Nacho</span>
+            </div>
             <h2>Introducción</h2>
             <p>
               <b>Suffgo</b> es una plataforma para toma de decisiones en grupos,
@@ -369,10 +404,6 @@
                 ágiles.
               </li>
               <li>Usuarios: equipos de trabajo, instituciones, comunidades.</li>
-              <li>
-                Features alcanzadas: autenticación, gestión de salas, propuestas y
-                votos; votación <b>tiempo real</b> y reportes post votación. 
-              </li>
             </ul>
           </div>
         </section>
@@ -380,26 +411,36 @@
         <!-- 2. Qué hace la aplicación -->
         <section class="slide">
           <div class="slide-inner card">
-            <h2>¿Qué hace Suffgo?</h2>
-            <div class="grid-2">
+            <div class="grid-2" style="align-items:center; gap:24px;">
+              <!-- Izquierda: contenido -->
               <div>
-                <ul>
-                  <li>
-                    Alta y administración de <b>usuarios</b></b>.
-                  </li>
-                  <li>
-                    Creación y gestión de <b>salas de votación</b>, customizacion de la misma.
-                  </li>
-                  <li>
-                    Creación de <b>propuestas</b> con múltiples
-                    <b>opciones de voto</b>.
-                  </li>
-                  <li>
-                    Configuraciones formales: tiempos, quórum, reglas y
-                    permisos.
-                  </li>
-                  <li>Tablero de resultados y exportación de reportes.</li>
+                <div style="display:flex; justify-content:flex-end;">
+                  <span class="tag">Coty</span>
+                </div>
+                <h2>¿Qué hace Suffgo?</h2>
+                <ul style="margin:0; padding-left:20px;">
+                  <li>Alta y administración de <b>usuarios</b>.</li>
+                  <li>Creación y gestión de <b>salas de votación</b> (customización incluida).</li>
+                  <li>Creación de <b>propuestas</b> con múltiples <b>opciones de voto</b>.</li>
+                  <li>Configuraciones formales: tiempos, quórum, reglas y permisos.</li>
+                  <li>Votación en tiempo real.</li>
+                  <li>Tablero de resultados en tiempo real.</li>
+                  <li>Unión a la sala mediante <b>QR</b>.</li>
                 </ul>
+              </div>
+              <!-- Derecha: video -->
+              <div class="media-right">
+                <video
+                  class="video-fit"
+                  src="assets/que-hace.mp4"
+                  poster="assets/demo-poster.jpg"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto">
+                  Tu navegador no soporta el elemento <code>video</code>.
+                </video>
               </div>
             </div>
           </div>
@@ -408,6 +449,9 @@
         <!-- 2. Qué no hace la aplicación -->
         <section class="slide">
           <div class="slide-inner card">
+            <div style="display: flex; justify-content: end;">
+              <span class="tag">Coty</span>
+            </div>
             <h2>¿Qué no hace Suffgo?</h2>
             <div style="display: flex; flex-direction: row;;gap: 24px; padding: 10px;">
               <div>
@@ -430,6 +474,9 @@
         <!-- 3. Metodologías y Flujo de trabajo -->
         <section class="slide">
           <div class="slide-inner card">
+            <div style="display: flex; justify-content: end;">
+              <span class="tag">Coty</span>
+            </div>
             <h2>Proceso de desarrollo</h2>
             <div style="display: flex; flex-direction: row; gap: 24px; padding: 10px;">
               <div style="box-shadow: 0 5px 10px #6b48ff; padding: 10px; border-radius: 12px;">
@@ -481,6 +528,11 @@
         <!-- Mencionar el asunto de que desplegamos en render a la hora de presentar, por eso aparece su dns -->
         <section class="slide">
           <div class="slide-inner card" style="display:flex; flex-direction: column; align-items:center; justify-content:center;">
+            <div style="align-self: flex-end;">
+              <div style="display: flex; justify-content: end; align-items: end;">
+                <span class="tag">Nacho</span>
+              </div>
+            </div>
             <h2>Arquitectura de sistema</h2>
             <figure style="margin:0 auto; max-width:90%; text-align:center;">
               <img
@@ -499,7 +551,12 @@
         <!-- 6. Stack tecnológico -->
         <section class="slide">
           <div class="slide-inner card" style="padding: 50px;">
-            <h2>Stack tecnologico</h2>
+            <div style="align-self: flex-end;">
+              <div style="display: flex; justify-content: end; align-items: end;">
+                <span class="tag">Tiago</span>
+              </div>
+            </div>
+            <h2>Stack tecnológico</h2>
             <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 24px; align-items: space-between;">
               <div>
                 <h3>Backend</h3>
@@ -544,6 +601,14 @@
                   </li>
                 </ul>
               </div> 
+              <div>
+                <img
+              src="assets/lenguajes.png"
+              alt="Diagrama de arquitectura de Backend"
+              loading="lazy"
+              decoding="async"
+              style="max-width:100%; height:auto; border:1px solid #e8e5ff; border-radius:16px; background:#fff; display:inline-block; box-shadow:0 10px 20px rgba(17,24,39,.08)"/>
+              </div>
             </div>
           </div>
         </section>
@@ -552,6 +617,11 @@
         <!-- 7. Arquitectura Backend -->
         <section class="slide">
           <div class="slide-inner card">
+            <div style="align-self: flex-end;">
+              <div style="display: flex; justify-content: end; align-items: end;">
+                <span class="tag">Tiago</span>
+              </div>
+            </div>
             <h2 style="text-align: center;">Arquitectura Backend</h2>
             <figure style="margin:0 auto; max-width:90%; text-align:center;">
             <img
@@ -573,7 +643,53 @@
         </section>
 
         <!-- 8. Websocket -->
-        
+<section class="slide">
+  <div class="slide-inner card">
+    <div class="grid-2" style="align-items:center; gap:24px;">
+
+      <!-- Izquierda: contenido -->
+      <div>
+        <div style="display:flex; justify-content:flex-end;">
+          <span class="tag">Nacho</span>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:10px;">
+          <h2 style="margin:0;">Websocket</h2>
+          <img
+            src="assets/websocket.png"
+            alt="Websocket"
+            width="50" height="50"
+            loading="eager" decoding="async"
+            style="display:inline-block; border-radius:12px; background:#fff;" />
+        </div>
+
+        <ul style="margin-top:14px; padding-left:20px;">
+          <li>Diseño</li>
+          <li>Implementación</li>
+          <li>Contemplar todos los posibles eventos</li>
+          <li>Manejo de timeouts por desconexión</li>
+          <li>Mantenimiento de procesos concurrentes entre salas y clientes</li>
+        </ul>
+      </div>
+
+      <!-- Derecha: video -->
+      <div class="media-right">
+        <video
+          class="video-fit2"
+          src="assets/ws-demo.mp4"
+          poster="assets/ws-poster.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto">
+          Tu navegador no soporta el elemento <code>video</code>.
+        </video>
+      </div>
+
+    </div>
+  </div>
+</section>
 
         <!-- 9. Conclusiones -->
         <section class="slide">
@@ -590,6 +706,9 @@
                 Diseño con arquitectura limpia facilitó pruebas y
                 mantenibilidad.
               </li>
+              <li>
+                Imagen de docker facilitó proceso de despliegue.
+              </li>
             </ul>
           </div>
         </section>
@@ -599,10 +718,13 @@
           <div class="slide-inner card">
             <h2>¡Gracias!</h2>
             <p>¿Preguntas o comentarios?</p>
-            <div style="margin-top: 12px">
-              <span class="tag">Contacto</span>
-              <span class="tag">Repositorio</span>
-              <span class="tag">Demo</span>
+            <div style="margin-top: 12px;">
+              <ul>
+                <li>Contanza Benedetti</li>
+                <li>Tiago Cardenas</li>
+                <li>Ignacio Sánchez</li>
+                <li>Marcos Soto</li>
+              </ul>
             </div>
           </div>
         </section>
