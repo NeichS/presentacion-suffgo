@@ -644,56 +644,56 @@
         </section>
 
         <!-- 8. Websocket -->
-<section class="slide">
-  <div class="slide-inner card">
-    <div class="grid-2" style="align-items:center; gap:24px;">
+        <section class="slide">
+          <div class="slide-inner card">
+            <div class="grid-2" style="align-items:center; gap:24px;">
 
-      <!-- Izquierda: contenido -->
-      <div>
-        <div style="display:flex; justify-content:flex-end;">
-          <span class="tag">Nacho</span>
-        </div>
+              <!-- Izquierda: contenido -->
+              <div>
+                <div style="display:flex; justify-content:flex-end;">
+                  <span class="tag">Nacho</span>
+                </div>
 
-        <div style="display:flex; align-items:center; gap:10px;">
-          <h2 style="margin:0;">Websocket</h2>
-          <img
-            src="assets/websocket.png"
-            alt="Websocket"
-            width="50" height="50"
-            loading="eager" decoding="async"
-            style="display:inline-block; border-radius:12px; background:#fff;" />
-        </div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <h2 style="margin:0;">Websocket</h2>
+                  <img
+                    src="assets/websocket.png"
+                    alt="Websocket"
+                    width="50" height="50"
+                    loading="eager" decoding="async"
+                    style="display:inline-block; border-radius:12px; background:#fff;" />
+                </div>
 
-        <ul style="margin-top:14px; padding-left:20px;">
-          <li>Diseño</li>
-          <li>Implementación</li>
-          <li>Contemplar todos los posibles eventos</li>
-          <li>Manejo de timeouts por desconexión</li>
-          <li>Mantenimiento de procesos concurrentes entre salas y clientes</li>
-        </ul>
-      </div>
+                <ul style="margin-top:14px; padding-left:20px;">
+                  <li>Diseño</li>
+                  <li>Implementación</li>
+                  <li>Contemplar todos los posibles eventos</li>
+                  <li>Manejo de timeouts por desconexión</li>
+                  <li>Mantenimiento de procesos concurrentes entre salas y clientes</li>
+                </ul>
+              </div>
 
-      <!-- Derecha: video -->
-      <div class="media-right">
-        <video
-          class="video-fit2"
-          src="assets/ws-demo.mp4"
-          poster="assets/ws-poster.jpg"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto">
-          Tu navegador no soporta el elemento <code>video</code>.
-        </video>
-      </div>
+              <!-- Derecha: video -->
+              <div class="media-right">
+                <video
+                  class="video-fit2"
+                  src="assets/ws-demo.mp4"
+                  poster="assets/ws-poster.jpg"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto">
+                  Tu navegador no soporta el elemento <code>video</code>.
+                </video>
+              </div>
 
-    </div>
-  </div>
-</section>
+            </div>
+          </div>
+        </section>
 
         <!-- 9. Conclusiones -->
-        <section class="slide">
+        <!-- <section class="slide">
           <div class="slide-inner card">
             <h2>Conclusiones</h2>
             <ul>
@@ -712,19 +712,23 @@
               </li>
             </ul>
           </div>
-        </section>
+        </section> -->
 
         <!-- 10. Cierre -->
         <section class="slide">
-          <div class="slide-inner card">
-            <h2>¡Gracias!</h2>
-            <p>¿Preguntas o comentarios?</p>
+          <div class="slide-inner card" style="display: flex; flex-direction: column;justify-content: center; align-items: center;">
+            <div>
+              <h2>¡Gracias!</h2>
+            </div>
+            <div>
+              <p>¿Preguntas o comentarios?</p>
+            </div>
             <div style="margin-top: 12px;">
               <ul>
-                <li>Contanza Benedetti</li>
-                <li>Tiago Cardenas</li>
-                <li>Ignacio Sánchez</li>
-                <li>Marcos Soto</li>
+                <li>Contanza Benedetti <b>cotybenedetti5@gmail.com</b></li>
+                <li>Tiago Cardenas <b>cardenas.tiago.r@gmail.com</b></li>
+                <li>Ignacio Sánchez <b>ignaciolaboral3@gmail.com</b></li>
+                <li>Marcos Soto <b>marcosrsoto90@gmail.com</b></li>
               </ul>
             </div>
           </div>
@@ -765,7 +769,7 @@
           index = Math.max(0, Math.min(total - 1, i));
           slides.style.transform = `translateX(-${index * 100}%)`;
           location.hash = String(index);
-          progress.style.width = ((index + 1) / total) * 100 + "%";
+          progress.style.width = `${((index + 1) / total) * 100}%`;
           prevBtn.disabled = index === 0;
           nextBtn.disabled = index === total - 1;
         }
